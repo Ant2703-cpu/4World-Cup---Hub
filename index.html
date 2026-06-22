@@ -247,6 +247,12 @@
     <div class="brand"><div class="crest">★</div>
       <div><h1>4World Cup '26</h1><div class="sub">Sweepstake · Live Hub</div></div></div>
     <span class="live"><span class="dot"></span>Live</span>
+    
+<button onclick="exportLeaderboardExcel()" 
+  style="margin-left:10px;padding:6px 10px;border-radius:6px;cursor:pointer;">
+  📊 Export
+</button>
+
   </header>
   <div class="stamp" id="stamp">Results as of <b>Sat 20 Jun 2026</b> · Group stage</div>
   <div class="tabs">
@@ -542,6 +548,51 @@ function pickPoints(team,tier){
 const playerBreakdown=p=>p.picks.map(pk=>pickPoints(pk.team,pk.tier));
 const playerPts=p=>playerBreakdown(p).reduce((a,b)=>a+b.total,0);
 function standings(){return PLAYERS.map(p=>({p,pts:playerPts(p)})).sort((a,b)=>b.pts-a.pts||a.p.name.localeCompare(b.p.name));}
+function exportLeaderboardExcel() {
+const order = standings();
+let rows = [
+    ["Rank","Player","Total Points",
+     "Gold Team","Gold W","Gold D","Gold L","Gold Points",
+     "Silver Team","Silver Points",
+     "Bronze Team","Bronze Points"]
+  ];
+order.forEach((o, i) => {
+    const breakdown = playerBreakdown(o.p);
+
+    rows.push([
+      i + 1,
+      o.p.name,
+      o.pts,
+
+      // Gold
+      breakdown[0].team,
+      breakdown[0].s.w,
+      breakdown[0].s.d,
+      breakdown[0].s.l,
+      breakdown[0].total,
+
+      // Silver
+      breakdown[1].team,
+      breakdown[1].total,
+
+      // Bronze
+      breakdown[2].team,
+      breakdown[2].total
+    ]);
+  });
+
+  const csvContent = rows.map(r => r.join(",")).join("\n");
+
+  const blob = new Blob([csvContent], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Leaderboard.csv";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
 function matchPtsFor(tier,res){const bz=tier==="bronze";return res==="W"?(bz?12:10):res==="D"?(bz?6:5):0;}
 function progLabel(s){return s.champ?"champ":s.qf?"QF":s.og?"R32":"";}
 
