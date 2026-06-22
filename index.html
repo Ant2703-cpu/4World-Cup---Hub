@@ -318,6 +318,7 @@
 
 <script>
 /* ===== Picks ===== */
+
 const PLAYERS = [
   ["Ishaam","Colombia","South Korea","South Africa"],
   ["Danie","Norway","Morocco","Tunisia"],
@@ -352,15 +353,15 @@ const PLAYERS = [
   ["Hennie","France","Scotland","Czechia"],
   ["Thulani","Colombia","Croatia","Bosnia"],
   ["Antan","Germany","Sweden","Tunisia"]
-].map(([name,g,s,b])=>({
+].map(([name,g,s,b]) => ({
   name,
-  picks:[
+  picks: [
     {tier:"gold",team:g},
     {tier:"silver",team:s},
     {tier:"bronze",team:b}
   ]
 }));
-].map(([name,g,s,b])=>({name,picks:[{tier:"gold",team:g},{tier:"silver",team:s},{tier:"bronze",team:b}]}));
+
 
 const FLAGS = {
   "Ecuador":"🇪🇨","Ivory Coast":"🇨🇮","Curaçao":"🇨🇼","USA":"🇺🇸","Egypt":"🇪🇬","New Zealand":"🇳🇿",
