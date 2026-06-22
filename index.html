@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Family World Cup '26 — Live Hub</title>
+<title>4World Cup '26 — Live Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -245,7 +245,7 @@
 <div class="wrap">
   <header class="topbar">
     <div class="brand"><div class="crest">★</div>
-      <div><h1>Family World Cup '26</h1><div class="sub">Sweepstake · Live Hub</div></div></div>
+      <div><h1>4World Cup '26</h1><div class="sub">Sweepstake · Live Hub</div></div></div>
     <span class="live"><span class="dot"></span>Live</span>
   </header>
   <div class="stamp" id="stamp">Results as of <b>Sat 20 Jun 2026</b> · Group stage</div>
@@ -298,7 +298,7 @@
   <div class="ku-lamp l"><i></i><i></i><i></i></div>
   <div class="ku-lamp r"><i></i><i></i><i></i></div>
   <div class="ku-flash f1"></div><div class="ku-flash f2"></div><div class="ku-flash f3"></div><div class="ku-flash f4"></div><div class="ku-flash f5"></div><div class="ku-flash f6"></div>
-  <div class="ku-board"><div class="scroll">★ Family World Cup 2026 ★ Olé Olé Olé ★ Keepie-Uppie Cup ★ Family World Cup 2026 ★ Olé Olé Olé ★ Keepie-Uppie Cup ★&nbsp;</div></div>
+  <div class="ku-board"><div class="scroll">★ 4World Cup 2026 ★ Olé Olé Olé ★ Keepie-Uppie Cup ★ 4World Cup 2026 ★ Olé Olé Olé ★ Keepie-Uppie Cup ★&nbsp;</div></div>
   <div class="ku-pitch"></div>
   <canvas id="kuCanvas"></canvas>
   <div class="ku-vignette"></div>
@@ -319,17 +319,48 @@
 <script>
 /* ===== Picks ===== */
 const PLAYERS = [
-  ["Devnisa","Ecuador","Ivory Coast","Curaçao"],["Kailum","USA","Egypt","New Zealand"],
-  ["Iyla","Japan","Uruguay","Haiti"],["Daryn","France","Croatia","Algeria"],
-  ["Vassi","Belgium","Paraguay","Czechia"],["Angath","Japan","Austria","Panama"],
-  ["Antan","Spain","South Korea","Czechia"],["Khajal","USA","Ivory Coast","Cabo Verde"],
-  ["Mike","Belgium","South Korea","Curaçao"],["Premie","Japan","Paraguay","Tunisia"],
-  ["Leasen","Netherlands","Ghana","Tunisia"],["Seshni","Brazil","Austria","Cabo Verde"],
-  ["Trivesh","Germany","Canada","South Africa"],["Shanelle","Germany","Morocco","Saudi Arabia"],
-  ["Lenny","Belgium","DR Congo","Panama"],["Tracy","Norway","Switzerland","Uzbekistan"],
-  ["Kaily","Portugal","Türkiye","Jordan"],["Liyah","Senegal","Australia","Jordan"],
-  ["Jaden","Netherlands","Paraguay","South Africa"],["Shireen","England","Uruguay","Haiti"],
-  ["Ma","France","Türkiye","New Zealand"],["Thatha","Norway","Australia","Saudi Arabia"],
+const PLAYERS = [
+  ["Ishaam","Colombia","South Korea","South Africa"],
+  ["Danie","Norway","Morocco","Tunisia"],
+  ["Konrad","Mexico","Australia","Jordan"],
+  ["Gracen","Germany","Morocco","Panama"],
+  ["Bradley","Portugal","Türkiye","Algeria"],
+  ["Jordan","USA","Paraguay","Curaçao"],
+  ["Johan","England","Egypt","South Africa"],
+  ["Vanessa","Norway","Austria","Algeria"],
+  ["Fama","USA","Morocco","Algeria"],
+  ["Amanda Van As","Argentina","South Korea","Iraq"],
+  ["Charl","Norway","Ivory Coast","Haiti"],
+  ["Ruan","France","Canada","Bosnia"],
+  ["Ahmed","Japan","Croatia","Haiti"],
+  ["Nitesh","Netherlands","South Korea","Iran"],
+  ["Darryl","Senegal","Türkiye","Qatar"],
+  ["Raeeza","Ecuador","Sweden","New Zealand"],
+  ["Mari Oberholzer","England","Switzerland","Uzbekistan"],
+  ["Amanda Strauss","Brazil","Switzerland","Cabo Verde"],
+  ["Uvarl","Spain","Scotland","Bosnia"],
+  ["Zuleika","Belgium","Egypt","Uzbekistan"],
+  ["Waldo","Belgium","Ghana","Jordan"],
+  ["Nalize","Mexico","Paraguay","Curaçao"],
+  ["Christa","Brazil","Ivory Coast","Iran"],
+  ["Sibusiso","Spain","DR Congo","Iraq"],
+  ["Wilhelm","England","Austria","Qatar"],
+  ["Willem","Ecuador","Ghana","Czechia"],
+  ["Danie Badenhorst","Netherlands","Croatia","New Zealand"],
+  ["Johan De Bruin","Belgium","DR Congo","Saudi Arabia"],
+  ["Jacques","Portugal","Uruguay","Panama"],
+  ["Handre","Japan","Türkiye","Jordan"],
+  ["Hennie","France","Scotland","Czechia"],
+  ["Thulani","Colombia","Croatia","Bosnia"],
+  ["Antan","Germany","Sweden","Tunisia"]
+].map(([name,g,s,b])=>({
+  name,
+  picks:[
+    {tier:"gold",team:g},
+    {tier:"silver",team:s},
+    {tier:"bronze",team:b}
+  ]
+}));
 ].map(([name,g,s,b])=>({name,picks:[{tier:"gold",team:g},{tier:"silver",team:s},{tier:"bronze",team:b}]}));
 
 const FLAGS = {
